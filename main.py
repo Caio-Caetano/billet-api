@@ -1,3 +1,4 @@
+# app.py
 import re
 import io
 import json
@@ -7,6 +8,15 @@ from PyPDF2 import PdfReader
 
 app = Flask(__name__)
 CORS(app)
+
+@app.route('/')
+def index():
+    return """
+    <h1> Welcome to my API </h1>
+    <p> This is the main route, to actually use call the route <strong>/bill-upload</strong> </p>
+    <p> Use form-data to pass the information, I recommend to use Postman for tests </p>
+    <p> Thanks! :D </p>
+    """
 
 @app.route('/bill-upload', methods=['POST'])
 def vincular_arquivos():
